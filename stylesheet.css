@@ -67,7 +67,6 @@ body {
   font-weight: bold;
 }
 
-
 :root {
   --color: rgb(0, 0, 0);
 }
@@ -83,10 +82,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* this is where the magic happens: */
   background-attachment: fixed;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.792), rgba(253, 190, 89,
-        0.5)), url(20241009_211947061_iOS.webp);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.792), rgba(253, 190, 89, 0.5)), url(20241009_211947061_iOS.webp);
   background-position: center;
   background-size: cover;
   color: var(--color);
@@ -100,39 +97,14 @@ body {
   background-color: #222;
 }
 
-.parallax-container2 {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* this is where the magic happens: */
-  background-attachment: fixed;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(166, 253, 89,
-        0.242)), url(20241010_211429855_iOS.webp);
-  background-position: center;
-  background-size: cover;
-  color: var(--color);
-  row-gap: 4rem;
-  text-align: center;
-}
-
-.buffer2 {
-  width: 100%;
-  min-height: 30vh;
-  background-color: #222;
-}
-
+.parallax-container2,
 .parallax-container3 {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* this is where the magic happens: */
   background-attachment: fixed;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(187, 89, 253,
-        0.5)), url(20241008_215439036_iOS.jpg);
   background-position: center;
   background-size: cover;
   color: var(--color);
@@ -140,6 +112,15 @@ body {
   text-align: center;
 }
 
+.parallax-container2 {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(166, 253, 89, 0.242)), url(20241010_211429855_iOS.webp);
+}
+
+.parallax-container3 {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(187, 89, 253, 0.5)), url(20241008_215439036_iOS.jpg);
+}
+
+.buffer2,
 .buffer3 {
   width: 100%;
   min-height: 30vh;
@@ -154,90 +135,6 @@ h1 {
 p {
   font-size: 2rem;
   font-weight: 700;
-}
-
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
 }
 
 ul {
@@ -398,4 +295,50 @@ ul {
 .footer-menu li a {
   font-size: 14px;
   color: #8b14db;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  /* Scale down h1 and p font sizes */
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust container and navigation padding */
+  .container {
+    padding: 0 15px;
+  }
+  
+  .nav .container {
+    padding: 10px 0;
+  }
+
+  /* Responsive layout for parallax sections */
+  .parallax-container,
+  .parallax-container2,
+  .parallax-container3 {
+    min-height: 50vh; /* Reduce height on smaller screens */
+  }
+
+  /* Footer adjustments */
+  .footer-text p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Further scaling for mobile screens */
+  h1 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  
+  .nav a {
+    padding: 5px 10px;
+  }
 }
