@@ -25,6 +25,8 @@ body {
   right: 0;
   background-color: #222;
   transition: all 0.3s ease-in-out;
+  width: 100%;
+  z-index: 10;
 }
 
 .nav .container {
@@ -67,57 +69,88 @@ body {
   font-weight: bold;
 }
 
+:root {
+  --color: rgb(0, 0, 0);
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, sans-serif;
+}
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+  justify-content: center; /* Center cards in the container */
+}
+
 .card {
   background: #fff;
   border-radius: 2px;
-  display: inline-block;
-  height: 300px;
+  display: block; /* Change display to block */
   margin: 1rem;
-  width: 300px;
-}
-
-p {
-
-  color: #222;
-  font-family: Georgia, sans-serif;
-  font-size: 1.65em;
-
+  width: 100%; /* Set width to 100% to be responsive */
+  max-width: 300px; /* Maximum width for larger screens */
+  min-width: 200px; /* Minimum width to ensure visibility */
+  height: auto; /* Auto height to accommodate content */
+  max-height: 400px; /* Maximum height for cards */
+  min-height: 200px; /* Minimum height to maintain structure */
+  box-shadow: 0 19px 38px; /* Base shadow for all cards */
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  background-size: cover; /* Ensure background covers the card */
+  background-position: center; /* Center the background image */
+  position: relative;
 }
 
 .card-1 {
-  box-shadow: 0 19px 38px;
-  height: 1024px;
-  width: 1300px;
   background-image: url(20241022_025354442_iOS.webp);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-
-.card-1:hover {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .card-2 {
-  box-shadow: 0 19px 38px;
-  height: 1024px;
-  width: 1300px;
   background-image: url(second-image.webp);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.card-2:hover {
+.card-3 {
+  background-image: url(20241027_021753859_iOS.jpg);
+}
+
+.card:hover {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
-
-.card-3 {
-  box-shadow: 0 19px 38px;
-  height: 730px;
-  width: 1300px;
-  background-image: url(20241027_021753859_iOS.jpg);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+/* Text styles */
+p {
+  color: #222; /* Text color */
+  font-family: Georgia, sans-serif;
+  font-size: 1.5em; /* Font size for description */
+  text-align: center; /* Center the text under each card */
+  margin: 0.5rem; /* Margin for spacing */
 }
 
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .card {
+      width: 90%; /* Take up more width on small screens */
+      margin: 0.5rem; /* Reduce margin on small screens */
+  }
 
+  p {
+      font-size: 1.2em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .card {
+      width: 45%; /* Two cards side by side on medium screens */
+  }
+}
+
+@media (min-width: 1201px) {
+  .card {
+      width: 30%; /* Three cards side by side on large screens */
+  }
+}
 
 :root {
   --color: rgb(0, 0, 0);
@@ -134,7 +167,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* this is where the magic happens: */
   background-attachment: fixed;
   background-image: linear-gradient(rgba(255, 255, 255, 0.792), rgba(129, 129, 129, 0.5)), url(20241017_211401356_iOS.png);
   background-position: center;
@@ -156,7 +188,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* this is where the magic happens: */
   background-attachment: fixed;
   background-image: linear-gradient(rgba(255, 255, 255, 0.792), rgba(129, 129, 129, 0.5)), url(20241017_211401356_iOS2.png);
   background-position: center;
@@ -178,7 +209,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* this is where the magic happens: */
   background-attachment: fixed;
   background-image: linear-gradient(rgba(255, 255, 255, 0.792), rgba(129, 129, 129, 0.5)), url(20241017_211401356_iOS3.png);
   background-position: center;
@@ -195,12 +225,12 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 
 p {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin: 10px;
 }
@@ -210,8 +240,7 @@ p {
 }
 
 .img-container {
-  float: left;
-  width: 33.33%;
+  width: 100%;
   padding: 5px;
 }
 
@@ -219,90 +248,6 @@ p {
   content: "";
   clear: both;
   display: table;
-}
-
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .wrapper {
-    width: 100%;
-    background-color: #222;
-  }
 }
 
 ul {
@@ -406,99 +351,5 @@ ul {
 .footer-text p {
   margin-bottom: 14px;
   font-size: 20px;
-  color: #7e7e7e;
-  line-height: 28px;
-}
 
-.footer-social-icon span {
-  color: #fff;
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 20px;
-}
-
-.footer-social-icon a {
-  color: #fff;
-  font-size: 16px;
-  margin-right: 15px;
-}
-
-.footer-social-icon i {
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  line-height: 38px;
-  border-radius: 50%;
-}
-
-.footer-widget-heading h3 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.footer-widget-heading h3::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  height: 2px;
-  width: 50px;
-  background: #8b14db;
-}
-
-.footer-widget ul li a:hover {
-  color: #8b14db;
-}
-
-.footer-widget ul li a {
-  color: #878787;
-  text-transform: capitalize;
-}
-
-.subscribe-form {
-  position: relative;
-  overflow: hidden;
-}
-
-.subscribe-form input {
-  width: 100%;
-  border: 5px;
-  padding: 16px 30px;
-  background: #2E2E2E;
-  border: 1px solid #2E2E2E;
-  color: #fff;
-}
-
-.subscribe-form button {
-  position: absolute;
-  right: 0;
-  background: #8b14db;
-  padding: 13px 20px;
-  border: 1px solid #8b14db;
-  top: 0;
-}
-
-.subscribe-form button i {
-  color: #fff;
-  font-size: 22px;
-  transform: rotate(-6deg);
-}
-
-.footer-menu li {
-  display: inline-block;
-  margin-left: 20px;
-}
-
-.footer-menu li:hover a {
-  color: #8b14db;
-}
-
-.footer-menu li a {
-  font-size: 14px;
-  color: #8b14db;
 }
